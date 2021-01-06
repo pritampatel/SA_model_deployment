@@ -1,3 +1,4 @@
+python==3.7.4
 streamlit==0.73.1
 tensorflow==2.3.1
 tensorflow_datasets==4.1.0
