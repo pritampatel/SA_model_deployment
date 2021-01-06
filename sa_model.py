@@ -8,8 +8,8 @@ from PIL import Image
 #model=tf.keras.models.load_model('drive/MyDrive/model_and_token/sentiment_analysis.hdf5')
 
 st.title("Sentiment Analysis Classifier")
-img=Image.open('feat.jpeg')
-st.image(img)
+img=Image.open('feat.jpg')
+st.image(img,use_column_width=True)
 
 
 def load_model_tokenizer():
@@ -34,13 +34,11 @@ def predict_fn(pred_text,size=1000):
     text_encoded= pad_to_size(text_encoded,size=1000)
     encoded_text= tf.cast(text_encoded,tf.int64)
     predictions=model.predict(tf.expand_dims(encoded_text,0))
-    sentiment='positive' if float(" ".join(map(str,predictions[0])))>0 else 'negative'
+    sentiment=' Positive' if float(" ".join(map(str,predictions[0])))>0 else ' Negative'
     return sentiment
 
 sentence = st.text_input('Input your sentence here:') 
 
 if sentence:
     st.write('Sentiment of the sentence is:',predict_fn(sentence))
-
-
-st.write('It works')
+    st.header('**It works great!**')

@@ -3,3 +3,4 @@ tensorflow==2.3.1
 tensorflow_datasets==4.1.0
 pandas==1.1.4
 numpy==1.16.5
+scikit_learn==0.23.2
